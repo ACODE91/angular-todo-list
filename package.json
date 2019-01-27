@@ -1,19 +1,8 @@
 {
-  "name": "angular-starter",
+  "name": "to-do-list",
   "version": "7.5.0",
   "description": "An Angular Webpack Starter kit featuring Angular (Router, Http, Forms, Services, Tests, E2E, Coverage), Karma, Protractor, Jasmine, Istanbul, TypeScript, and Webpack by Tipe.io",
-  "keywords": [
-    "angular",
-    "angular2",
-    "angular4",
-    "angular5",
-    "webpack",
-    "typescript",
-    "tipe",
-    "tipe.io"
-  ],
-  "author": "Patrick Stapleton <patrick@tipe.io>",
-  "homepage": "https://github.com/gdi2290/angular-starter",
+  "author": "Aaron Lao",
   "license": "MIT",
   "scripts": {
     "build:aot:prod": "rimraf dist compiled && cross-env BUILD_AOT=1 SOURCE_MAP=0 npm run webpack -- --config config/webpack.prod.js --progress --profile --bail",
@@ -60,7 +49,7 @@
     "server:aot:dev": "cross-env BUILD_AOT=1 npm run server:dev",
     "server:dev": "npm run webpack-dev-server -- --config config/webpack.dev.js --open --progress --profile --watch --content-base src/",
     "server:prod": "http-server dist -c-1 --cors",
-    "server:prod:ci": "http-server dist -p 3000 -c-1 --cors",
+    "server:prod:ci": "http-server dist -p 4000 -c-1 --cors",
     "server": "npm run server:dev",
     "start:prod:hmr": "cross-env ANGULAR_CONF_FILE=./config.prod.json npm run server:dev:hmr",
     "start:hmr": "npm run server:dev:hmr",
