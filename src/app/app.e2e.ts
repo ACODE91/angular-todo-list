@@ -19,7 +19,7 @@ describe('App', () => {
     expect(subject).toEqual(result);
   });
 
-  it('should have <home>', async () => {
+  it('should have <todo>', async () => {
     const subject = await element(by.css('app home')).isPresent();
     const result  = true;
     expect(subject).toEqual(result);

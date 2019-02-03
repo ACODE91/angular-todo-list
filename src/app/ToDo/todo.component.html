@@ -1,23 +1,29 @@
 <div>
   <h1 x-large class="sample-content">Aaron's To Do List</h1>
   <div>
+    <table>
+      <tr>
+        <th>Label</th>
+        <th>Priority</th>
+      </tr>
+      <tr *ngFor="let todo of localState.todos">
+        <td>{{todo.label}}</td>
+        <td>{{todo.priority}}</td>
+      </tr>
+    </table>
 
-    <form (ngSubmit)="submitState(localState.value)" autocomplete="off">
 
-      <input
-        [value]="localState.value"
-        (input)="localState.value = $event.target.value"
-        placeholder="Submit New ToDo Item"
-        autofocus>
+    <form (ngSubmit)="submitState(todoLabel.value, todoPriority.value)" autocomplete="off">
 
-      <button>Submit To Do</button>
+      <input #todoLabel (input)="localState.label = $event.target.value" placeholder="Enter your label." autofocus>
+      <input #todoPriority (input)="localState.value = $event.target.value" placeholder="Enter your priority." autofocus>
+      <input type="submit" value="submit" (input)="localState.value = $event.target.value" placeholder="Submit New ToDo Item" autofocus>
+
     </form>
-    <!--
-        <input type="text" [value]="localState.value" (input)="localState.value = $event.target.value" autofocus>
-        Rather than wiring up two-way data-binding ourselves with [value] and (input)
-        we can use Angular's [(ngModel)] syntax
-        <input type="text" name="textInput" [(ngModel)]="localState.value" autofocus>
-      -->
+
+
+    Rather than wiring up two-way data-binding ourselves with [value] and (input) we can use Angular's [(ngModel)] syntax
+    <input type="text" name="textInput" [(ngModel)]="localState.value" autofocus>
 
     <pre>this.localState = {{ localState | json }}</pre>
 

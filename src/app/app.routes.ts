@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home';
+import { TodoComponent } from './todo';
 import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
 
 export const ROUTES: Routes = [
-  { path: '',      component: HomeComponent },
-  { path: 'todo',  component: HomeComponent },
+  { path: '',      component: TodoComponent },
+  { path: 'todo',  component: TodoComponent },
   { path: 'about', component: AboutComponent },
   { path: '**',    component: NoContentComponent },
 ];

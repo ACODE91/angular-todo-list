@@ -13,7 +13,7 @@ import { XLargeDirective } from './x-large';
    * for `document.querySelectorAll(selector)` in our index.html
    * where, in this case, selector is the string 'home'.
    */
-  selector: 'home',  // <home></home>
+  selector: 'todo',  // <home></home>
   /**
    * We need to tell Angular's Dependency Injection which providers are in our app.
    */
@@ -29,11 +29,11 @@ import { XLargeDirective } from './x-large';
    */
   templateUrl: './todo.component.html'
 })
-export class HomeComponent implements OnInit {
+export class TodoComponent implements OnInit {
   /**
    * Set our default values
    */
-  public localState = { value: '' };
+  public localState = { todo: {label: '', priority: 0}, todos: [] };
   /**
    * TypeScript public modifiers
    */
@@ -49,9 +49,10 @@ export class HomeComponent implements OnInit {
      */
   }
 
-  public submitState(value: string) {
-    console.log('submitState', value);
-    this.appState.set('value', value);
-    this.localState.value = '';
+  public submitState(label: string, priority: number) {
+    const todoItem = {
+      label, priority
+    };
+    this.appState.set('todos', this.localState.todos.push(todoItem));
   }
 }

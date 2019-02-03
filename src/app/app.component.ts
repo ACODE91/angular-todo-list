@@ -33,15 +33,12 @@ export const ROOT_SELECTOR = 'app';
       <router-outlet></router-outlet>
     </main>
 
-
-    <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
-
   `
 })
 
 export class AppComponent implements OnInit {
   public title = 'My Todos';
-  public todo = { label: 'Bring Milk', done: false, priority: 3};
+
   constructor(
     public appState: AppState
   ) {}
